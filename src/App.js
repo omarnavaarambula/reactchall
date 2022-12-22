@@ -1,21 +1,21 @@
-import React, { useRef, useState,useEffect} from "react";
+import React, { useRef, useState} from "react";
 import Moveable from "react-moveable";
 
 const App = () => {
   const [moveableComponents, setMoveableComponents] = useState([]);
   const [selected, setSelected] = useState(null);
 
-  const url = 'https://jsonplaceholder.typicode.com/photos'
-  const[todos, setTodos] = useState()
-    const fetchApi = async () => {
-      const response = await fetch(url)
-      console.log(response.status)
-      const responseJSON = await response.json()
-      setTodos(responseJSON)
-    }
-    useEffect(() =>{
-      fetchApi()
-    }, [])
+//   const url = 'https://jsonplaceholder.typicode.com/photos'
+//   const[todos, setTodos] = useState()
+//     const fetchApi = async () => {
+//       const response = await fetch(url)
+//       console.log(response.status)
+//       const responseJSON = await response.json()
+//       setTodos(responseJSON)
+//     }
+//     useEffect(() =>{
+//       fetchApi()
+//     }, [])
 
 
 
@@ -49,7 +49,7 @@ const App = () => {
     console.log("e", e.direction);
   
 
-    const [handlePosX, handlePosY] = e.direction;
+    const [handlePosX] = e.direction;
 
     if (handlePosX === -1) {
       console.log("width", moveableComponents, e);
@@ -171,37 +171,37 @@ const Component = ({
     });
   };
 
-  const onResizeEnd = async (e) => {
-    let newWidth = e.lastEvent?.width;
-    let newHeight = e.lastEvent?.height;
+//   const onResizeEnd = async (e) => {
+//     let newWidth = e.lastEvent?.width;
+//     let newHeight = e.lastEvent?.height;
 
-    const positionMaxTop = top + newHeight;
-    const positionMaxLeft = left + newWidth;
+//     const positionMaxTop = top + newHeight;
+//     const positionMaxLeft = left + newWidth;
 
-    if (positionMaxTop > parentBounds?.height)
-      newHeight = parentBounds?.height - top;
-    if (positionMaxLeft > parentBounds?.width)
-      newWidth = parentBounds?.width - left;
+//     if (positionMaxTop > parentBounds?.height)
+//       newHeight = parentBounds?.height - top;
+//     if (positionMaxLeft > parentBounds?.width)
+//       newWidth = parentBounds?.width - left;
 
-    const { lastEvent } = e;
-    const { drag } = lastEvent;
-    const { beforeTranslate } = drag;
+//     const { lastEvent } = e;
+//     const { drag } = lastEvent;
+//     const { beforeTranslate } = drag;
 
-    const absoluteTop = top + beforeTranslate[1];
-    const absoluteLeft = left + beforeTranslate[0];
+//     const absoluteTop = top + beforeTranslate[1];
+//     const absoluteLeft = left + beforeTranslate[0];
 
-    updateMoveable(
-      id,
-      {
-        top: absoluteTop,
-        left: absoluteLeft,
-        width: newWidth,
-        height: newHeight,
-        color,
-      },
-      true
-    );
-  };
+//     updateMoveable(
+//       id,
+//       {
+//         top: absoluteTop,
+//         left: absoluteLeft,
+//         width: newWidth,
+//         height: newHeight,
+//         color,
+//       },
+//       true
+//     );
+//   };
 
   return (
     <>
